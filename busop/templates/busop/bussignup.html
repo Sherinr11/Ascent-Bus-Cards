@@ -1,0 +1,46 @@
+
+{% load static %} <!-- Load static template tag -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Screen</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'bussignup.css' %}"> <!-- Adjust the path as needed -->
+  <style>
+    
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #26b4a3 0%, #85eade 100%);
+  font-family: 'Inter', sans-serif;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">SIGN UP</h1>
+    <form action="{% url 'bussignup' %}" method="post"> 
+      {% csrf_token %} 
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder="Full Name">
+      </div>
+      
+      <div class="form-group">
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" name="password" placeholder="Password">
+      </div>
+      <button type="submit">Signup</button>
+      <br>
+   
+    </form>
+  </div>
+</body>
+</html>

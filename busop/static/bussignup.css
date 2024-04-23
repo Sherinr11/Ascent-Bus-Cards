@@ -1,0 +1,68 @@
+signup.css
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #26b4a3 0%, #85eade 100%);
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #b0ded9;
+  max-width: 400px; /* Added maximum width for better responsiveness */
+}
+
+.heading {
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #4a4747;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 0 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #21aa9a;
+  color: #fff;
+  padding: 12px 30px; /* Increased padding for more length */
+  border: none;
+  border-radius: 20px; /* Increased border-radius for more rounded corners */
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #128477;
+}
+
+a {
+  text-decoration: none;
+  color: #0c78a6;
+}
+
+a:hover {
+  color: #004b43;
+}
+
+p {
+  margin-top: 10px; /* Added missing unit */
+}

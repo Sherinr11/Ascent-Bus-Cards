@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Profile Details</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="{% static 'main.css' %}" rel="stylesheet">
+  <link href="{% static 'profile.css' %}" rel="stylesheet">
+
+  <style>
+    /* Additional inline styles for center alignment */
+    body {
+      background-color: transparent;
+    }
+    
+    /* Additional inline styles for center alignment */
+    .container {
+      text-align: center;
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .transaction-history {
+      margin-top: 50px;
+      overflow-x: auto; /* Enable horizontal scrolling if the table overflows its container */
+    }
+
+    .transaction-history table {
+      width: 100%; /* Make the table fill its container */
+      border-collapse: collapse; /* Collapse the borders between table cells */
+    }
+
+    .transaction-history th, .transaction-history td {
+      border: 1px solid #ddd; /* Add borders to table cells */
+      padding: 8px; /* Add padding inside table cells */
+    }
+
+    .transaction-history th {
+      background-color: #f2f2f2; /* Add a background color to table headers */
+      color: #333; /* Set text color for table headers */
+      font-weight: bold; /* Make table headers bold */
+    }
+
+    .transaction-history tbody tr:nth-child(even) {
+      background-color: #f9f9f9; /* Add a background color to even rows */
+    }
+
+    .transaction-history tbody tr:hover {
+      background-color: #f2f2f2; /* Add a background color when hovering over rows */
+    }
+
+    /* Styles for the search bar */
+    .search-container {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .search-container input[type=text] {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .search-container button {
+      padding: 10px;
+      background: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background: #0b7dda;
+    }
+  </style>
+</head>
+
+<body>
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <a href="{% url 'index' %}" class="logo d-flex align-items-center">
+      <h1>Ascent<span>.</span></h1>
+    </a>
+    <div style="color: white;">
+      <a href="{% url 'user_travel_history' %}" style="color: white;">User Travel History</a>|
+      <a href="{% url 'add_user' %}" style="color: white;">Add Users</a>|
+      <a href="{% url 'adlogout' %}" style="color: white;">Logout</a>
+    </div>
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+  </div>
+</header><!-- End Header -->
+
+
+  <main id="main">
+    <div class="container">
+      <h2>Transaction History</h2>
+      <!-- Search bar -->
+      <div class="search-container">
+        <form id="search-form">
+          <input type="text" placeholder="Search for user's transaction history..." id="search-input">
+          <button type="button" id="search-button">Search</button>
+      </form>
+      
+      </div>
+      <div class="transaction-history">
+        <table>
+          <thead>
+            <tr>
+              <th>Ride No</th>
+              <th>Date</th>
+              <th>Card ID</th>
+              <th>Source</th>
+              <th>Destination</th>
+              <th>Fare</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for travel in travels_data.travels %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ travel.date }}</td>
+                <td>{{ travel.cardid }}</td>
+                <td>{{ travel.location_a }}</td>
+                <td>{{ travel.location_b }}</td>
+                <td>{{ travel.fare }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('search-button').addEventListener('click', function () {
+            var input = document.getElementById('search-input').value.toLowerCase();
+            var table = document.querySelector('.transaction-history table');
+            var rows = table.querySelectorAll('tbody tr');
+
+            rows.forEach(function (row) {
+                var cells = row.querySelectorAll('td');
+                var found = false;
+                cells.forEach(function (cell) {
+                    if (cell.textContent.toLowerCase().includes(input)) {
+                        found = true;
+                    }
+                });
+                row.style.display = found ? '' : 'none';
+            });
+        });
+    });
+</script>
+
+</body>
+
+</html>

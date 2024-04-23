@@ -1,0 +1,59 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Operator Dashboard</title>
+  <link rel="stylesheet" href="{% static 'busop.css' %}">
+</head>
+<body>
+    <header id="header" class="header d-flex align-items-center">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+                <h1>Ascent<span>.</span></h1>
+            </a>
+            <div style="position:absolute;right: 100px;">
+                <a href="{% url 'logout' %}" style="color: black; ">Logout</a> <!-- Logout link -->
+            </div>
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        </div>
+    </header><!-- End Header -->
+    
+  
+  <div class="container">
+    <h1>Bus Operator Dashboard</h1>
+    <div class="stats">
+      <h2>Daily Statistics</h2>
+      <div class="daily-stats">
+        <div class="stat">
+          <h3>Amount Collected:</h3>
+          <p id="daily-amount">---</p>
+        </div>
+        <div class="stat">
+          <h3>No. of People Traveled:</h3>
+          <p id="daily-travelers">---</p>
+        </div>
+      </div>
+    </div>
+    <div class="stats">
+      <h2>Monthly Statistics</h2>
+      <div class="monthly-stats">
+        <div class="stat">
+          <h3>Amount Collected:</h3>
+          <p id="monthly-amount">---</p>
+        </div>
+        <div class="stat">
+          <h3>No. of People Traveled:</h3>
+          <p id="monthly-travelers">---</p>
+        </div>
+      </div>
+    </div>
+    <div class="visualization">
+      <h2>Visualization</h2>
+      <canvas id="monthly-chart"></canvas>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{% static 'busop.js' %}"></script>
+</body>
+</html>

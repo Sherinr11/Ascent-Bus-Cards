@@ -1,0 +1,84 @@
+
+/* Global styles */
+
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0 ;
+    padding: 30px;
+    background-color: #d0f3ee;
+    
+
+  }
+  
+  .container {
+    
+    max-width: 800px;
+    margin-top: 100px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #eefcfe;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+
+  
+  }
+  
+ 
+  
+  .transaction-history {
+    text-align: center;
+  }
+  
+  .ride-box {
+    border: 2px solid #6c757d;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    text-align: left;
+    font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* Using font-default from the theme */
+
+  }
+  
+  
+  .ride-box h3 {
+    margin-top: 0;
+    color: #343a40;
+  }
+  
+  .ride-info {
+    color: #495057;
+  }
+  
+  .ride-info p {
+    margin: 5px 0;
+  }
+  .transaction-history {
+    margin-top: 50px;
+    overflow-x: auto; /* Enable horizontal scrolling if the table overflows its container */
+}
+
+.transaction-history table {
+    width: 100%; /* Make the table fill its container */
+    border-collapse: collapse; /* Collapse the borders between table cells */
+}
+
+.transaction-history th, .transaction-history td {
+    border: 1px solid #ddd; /* Add borders to table cells */
+    padding: 8px; /* Add padding inside table cells */
+}
+
+.transaction-history th {
+    background-color: #f2f2f2; /* Add a background color to table headers */
+    color: #333; /* Set text color for table headers */
+    font-weight: bold; /* Make table headers bold */
+}
+
+.transaction-history tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Add a background color to even rows */
+}
+
+.transaction-history tbody tr:hover {
+    background-color: #f2f2f2; /* Add a background color when hovering over rows */
+}

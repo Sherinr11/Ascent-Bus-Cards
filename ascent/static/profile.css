@@ -1,0 +1,62 @@
+/* Bus Card Details */
+.bus-card-details {
+    padding: 10px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+  }
+  
+  .bus-card-details .card {
+    border: 0;
+    margin: 0;
+    background: #a1efe3;
+    border-radius: 10px;
+    box-shadow: 0px 5px 25px 0px rgba(rgb(27, 55, 157), rgb(28, 120, 162), blue, alpha);
+    height: 50%; /* Adjust height as needed */
+    max-height: 800px;
+    
+  }
+  
+  .bus-card-details .card-body {
+    padding: 20px;
+    
+  }
+  
+  .bus-card-details .card-title {
+    font-family: "Montserrat", sans-serif; /* Using font-primary from the theme */
+    font-size: 24px;
+    font-weight: 700;
+    color: #008374; /* Using color-primary from the theme */
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .bus-card-details .list-group-item {
+    font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* Using font-default from the theme */
+    font-size: 16px;
+    font-weight: 500;
+    border: 0;
+    background: #a1efe3;
+    border-bottom: 1px solid #a5dff8;
+    color: #222222; /* Using color-default from the theme */
+  }
+  
+  .bus-card-details .list-group-item:last-child {
+    border-bottom: 0;
+  }
+  
+  /* Background color for the area below bus details */
+  .bus-card-details .background-color {
+  background-color:  #76cfc2;
+  border-radius: 10px;
+    padding: 20px;
+  }
+  /* Set background color for the whole screen */
+body {
+  background-color: rgb(211, 253, 249); /* Light blue color similar to the existing theme */
+  margin: 0;
+  padding: 0;
+}
+
+  
